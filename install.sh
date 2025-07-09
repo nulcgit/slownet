@@ -25,9 +25,8 @@ sudo systemctl restart yggdrasil
 sudo ping -6 -c 5 21e:a51c:885b:7db0:166e:927:98cd:d186
 
 nncp-cfgnew | sudo tee /etc/nncp.hjson
+sudo adduser --system --group --no-create-home nncp
 sudo cp /usr/share/doc/nncp/examples/nncp-daemon.service /etc/systemd/system
-sudo sed -i "s/User=nncp/User=$USER/g" /etc/systemd/system/nncp-daemon.service
-sudo sed -i "s/Group=nncp/Group=$USER/g" /etc/systemd/system/nncp-daemon.service
 sudo systemctl daemon-reload
 sudo systemctl enable nncp-daemon
 sudo systemctl restart nncp-daemon
