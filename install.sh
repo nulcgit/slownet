@@ -18,7 +18,7 @@ pip install reader[cli] -q
 
 yggdrasil -genconf | sudo tee /etc/yggdrasil/yggdrasil.conf
 sudo sed -i "s/ Peers\: \[\]/ Peers: \[\n    quic\:\/\/ip4.01.ekb.ru.dioni.su\:9002\?priority=0 \n  \]/g" /etc/yggdrasil/yggdrasil.conf
-sudo sed -i "s/ NodeInfo\: {}/ NodeInfo\: \{\n    name: slownet$(date -u +"%Y%m%d%H%M%S")\n  \}/g" /etc/yggdrasil/yggdrasil.conf.bak
+sudo sed -i "s/ NodeInfo\: {}/ NodeInfo\: \{\n    name: slownet$(date -u +"%Y%m%d%H%M%S")\n  \}/g" /etc/yggdrasil/yggdrasil.conf
 sudo systemctl daemon-reload
 sudo systemctl enable yggdrasil
 sudo systemctl restart yggdrasil
