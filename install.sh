@@ -22,3 +22,9 @@ sudo sed -i "s/ NodeInfo\: {}/ NodeInfo\: \{\n    name: slownet$(date -u +"%Y%m%
 sudo systemctl daemon-reload
 sudo systemctl enable yggdrasil
 sudo systemctl restart yggdrasil
+
+sleep 9
+cd "$(dirname "$0")"
+rm -rf temp
+mkdir temp
+sudo reboot
