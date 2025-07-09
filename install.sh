@@ -24,6 +24,11 @@ sudo systemctl enable yggdrasil
 sudo systemctl restart yggdrasil
 sudo ping -6 -c 5 21e:a51c:885b:7db0:166e:927:98cd:d186
 
+sudo cp /usr/share/docs/nncp/examples/nncp-daemon.service /etc/systemd/system
+sudo systemctl daemon-reload
+sudo systemctl enable nncp-daemon
+sudo systemctl restart nncp-daemon
+
 sleep 9
 cd "$(dirname "$0")"
 rm -rf temp
