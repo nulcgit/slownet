@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")"
 export SLOWNET="$PWD"
-mkdir -p temp apps data/share/log
+mkdir -p bin temp apps data/share/log
 (echo -e "$(date -u) SlowNet installation started.") >> $PWD/data/log.txt
 echo PATH="$PATH:/home/$USER/.local/bin:$PWD/bin" | sudo tee /etc/environment
 echo SLOWNET="$PWD" | sudo tee -a /etc/environment
