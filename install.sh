@@ -30,6 +30,8 @@ sudo systemctl daemon-reload
 sudo systemctl enable nncp-daemon
 sudo systemctl restart nncp-daemon
 
+echo -e "$(sudo crontab -l)\n@reboot echo \"\$(date -u) System is rebooted\" >> $PWD/data/log.txt\n* * * * * su $USER -c \"bash $PWD/bin/cron.sh\"" | sudo crontab -
+
 sleep 9
 cd "$(dirname "$0")"
 rm -rf temp
