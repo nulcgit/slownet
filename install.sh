@@ -15,6 +15,7 @@ sudo systemctl restart docker
 python3 -m venv venv
 source venv/bin/activate
 pip install reader[cli] -q
+sudo apt install --reinstall iputils-ping
 
 yggdrasil -genconf | sudo tee /etc/yggdrasil/yggdrasil.conf
 sudo sed -i "s/ Peers\: \[\]/ Peers: \[\n    quic\:\/\/ip4.01.ekb.ru.dioni.su\:9002\?priority=0 \n  \]/g" /etc/yggdrasil/yggdrasil.conf
@@ -33,5 +34,5 @@ sleep 9
 cd "$(dirname "$0")"
 rm -rf temp
 mkdir temp
-sudo ping -6 -c 5 21e:a51c:885b:7db0:166e:927:98cd:d186
+ping -6 -c 5 21e:a51c:885b:7db0:166e:927:98cd:d186
 sudo reboot
