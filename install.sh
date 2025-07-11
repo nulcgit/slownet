@@ -26,6 +26,7 @@ sudo systemctl restart yggdrasil
 
 nncp-cfgnew | sudo tee /etc/nncp.hjson
 sudo cp /usr/share/doc/nncp/examples/nncp-daemon.service /etc/systemd/system
+sudo sed -i "s/mcd-send: {.*: 10}/mcd-send: {.*: 600}/g" /etc/nncp.hjson
 sudo systemctl daemon-reload
 sudo systemctl enable nncp-daemon
 sudo systemctl restart nncp-daemon
